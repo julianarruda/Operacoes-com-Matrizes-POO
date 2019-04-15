@@ -8,7 +8,6 @@
 using namespace std;
 
 class Matriz{
-
 public:
     Matriz(); //cria uma matriz vazia com número de linhas e colunas iguais a 0.
     Matriz(int linhas, int colunas, const double &valor = 0); //cria uma matriz com o número de linhas e colunas iguais aos recebidos pelos argumentos.
@@ -25,7 +24,6 @@ public:
     double Igualdade(); //Verifica se duas Matrizes são iguais.
     double ImprimeMatriz();
     double LeituraMatriz();
-
 private:
     int _numero_de_linhas;
     int _numero_de_colunas;
