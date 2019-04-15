@@ -3,9 +3,9 @@
 
 Professor Cristiano Leite 
 
-Eduarda - 
+Eduarda Fernanda Avila Reis 
 
-Juliana Arruda Narcizo - 
+Juliana Arruda Narcizo  
 
 <h3>Trabalho Prático 1:</h3>
 
