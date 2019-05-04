@@ -36,6 +36,13 @@ Matriz::~Matriz(){
     //destrui a matriz
 }
 
-double MatrizIdentidade(){
-
+double Matriz::MatrizIdentidade(){
+    for(unsigned int i = 0; i < this->_numero_de_linhas; i++){
+        for(unsigned int j = 0; j < this->_numero_de_colunas; j++){
+            if (_numero_de_linhas==_numero_de_colunas)
+                this->M[i][j] = 1;
+            else
+                this->M[i][j] = 0;
+        }
+    }
 }
