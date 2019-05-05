@@ -36,7 +36,7 @@ Matriz::~Matriz(){
     //destrui a matriz
 }
 
-double Matriz::MatrizIdentidade(){
+void Matriz::MatrizIdentidade(){
     for(unsigned int i = 0; i < this->_numero_de_linhas; i++){
         for(unsigned int j = 0; j < this->_numero_de_colunas; j++){
             if (_numero_de_linhas==_numero_de_colunas)
@@ -45,4 +45,15 @@ double Matriz::MatrizIdentidade(){
                 this->M[i][j] = 0;
         }
     }
+}
+
+void Matriz::AlteraValor(){
+    cout << "Digite o numero de linhas:" << endl;
+    cin >> this->_numero_de_linhas;
+    cout << "Digite o numero de colunas:" << endl;
+    cin >> this->_numero_de_colunas;
+    cout << "Digite os valores das matrizes:" << endl;
+    for(unsigned int i = 0; i < this->_numero_de_linhas; i++)
+        for(unsigned int j = 0; j < this->_numero_de_colunas; j++)
+            cin >> this->M[i][j];
 }
