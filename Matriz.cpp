@@ -48,12 +48,26 @@ void Matriz::MatrizIdentidade(){
 }
 
 void Matriz::AlteraValor(){
-    cout << "Digite o numero de linhas:" << endl;
-    cin >> this->_numero_de_linhas;
-    cout << "Digite o numero de colunas:" << endl;
-    cin >> this->_numero_de_colunas;
-    cout << "Digite os valores das matrizes:" << endl;
-    for(unsigned int i = 0; i < this->_numero_de_linhas; i++)
-        for(unsigned int j = 0; j < this->_numero_de_colunas; j++)
-            cin >> this->M[i][j];
+    unsigned int nL, nC;
+    char resp[3];
+    cout << "Digite a posicao que voce deseja alterar:" << endl;
+    cin >> nL;
+    cin >> nC;
+    cout << "Digite o valor que deseja inserir:" << endl;
+    cin >> this->M[nL][nC];
+}
+
+Matriz Matriz::SomaMatriz(Matriz a){
+    if(this->_numero_de_linhas!=a._numero_de_linhas && this->_numero_de_colunas!=a._numero_de_colunas){
+       cout << "Operacao invalida!";
+       exit(-1);
+    }
+    else{
+        Matriz aux;
+        for(unsigned int i = 0; i < _numero_de_linhas; i++)
+        for(unsigned int j = 0; j < _numero_de_colunas; j++)
+            aux.M[i][j] = this->M[i][j] + a.M[i][j];
+
+        return aux;
+    }
 }
