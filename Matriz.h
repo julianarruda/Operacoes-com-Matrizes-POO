@@ -23,9 +23,11 @@ public:
     //Matriz SubtraiMatriz(Matriz a);
     //Matriz Trasposta();
     //Matriz MultiplicaMatrizes(Matriz a);
-    Matriz operator*(const Matriz &a) const;
+    Matriz operator*=(const Matriz &a) const;
+    Matriz operator*(const Matriz &a)const;
     int operator==(const Matriz &a) const;
     Matriz& operator=( const Matriz &m );
+    int operator!=(const Matriz &a)const;
     Matriz operator~() const;
     Matriz& operator-=(const Matriz &a);
     Matriz operator-(const Matriz &a) const;
@@ -36,10 +38,8 @@ public:
     void AlteraValor(); //Altera o valor de uma posição da matriz.
     void ModificaElementos0(); //Modifica os elementos da matriz para 0.
     void ModificaElementos1(); //Modifica os elementos da Matriz com 1.
-    void ValorLinha();
-    void ValorColuna();
-    int get_numero_de_linhas();
-    int get_numero_de_colunas();
+    int ValorLinha();
+    int ValorColuna();
 
 private:
     int _numero_de_linhas;
