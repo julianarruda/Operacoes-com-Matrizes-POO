@@ -1,4 +1,8 @@
 #include "Matriz.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 using namespace std;
 
@@ -7,7 +11,7 @@ Matriz::Matriz(){
     this->_numero_de_colunas = 0;
 }
 
-Matriz::Matriz(unsigned int linhas, unsigned int colunas, const double &valor){
+Matriz::Matriz(unsigned int linhas, unsigned int colunas, const double &valor=0){
     while(linhas==0 || colunas==0){
         cout << "Favor inserir valor válido" << endl;
         cin >> linhas;
@@ -25,6 +29,7 @@ Matriz::Matriz(unsigned int linhas, unsigned int colunas, const double &valor){
         for(unsigned int j = 0; j < colunas; j++)
             this->M[i][j] = valor;
 }
+
 
 Matriz::Matriz(const Matriz &m){
     this->_numero_de_linhas = m._numero_de_linhas;
@@ -70,7 +75,6 @@ void Matriz::MatrizIdentidade(){
     }
 }
 
-
 void Matriz::AlteraValor(){
     unsigned int nL, nC;
     char resp[3];
@@ -106,7 +110,7 @@ Matriz& Matriz::operator+=(const Matriz &a){
     return *this;
 }
 
-const Matriz Matriz::operator+(const Matriz &a) const{
+Matriz Matriz::operator+(const Matriz &a) const{
     if(this->_numero_de_linhas!=a._numero_de_linhas && this->_numero_de_colunas!=a._numero_de_colunas){
        cout << "Operacao invalida!";
        exit(-1);
@@ -141,7 +145,7 @@ Matriz& Matriz::operator-=(const Matriz &a){
     return *this;
 }
 
-const Matriz Matriz::operator-(const Matriz &a) const{
+Matriz Matriz::operator-(const Matriz &a) const{
     if(this->_numero_de_linhas!=a._numero_de_linhas && this->_numero_de_colunas!=a._numero_de_colunas){
        cout << "Operacao invalida!";
        exit(-1);
@@ -161,12 +165,14 @@ const Matriz Matriz::operator-(const Matriz &a) const{
 }
 */
 
-const Matriz Matriz::operator~(const Matriz &a) const{
-    Matriz aux(*this);
+Matriz Matriz::operator~() const{
+    Matriz aux;
+    aux._numero_de_linhas = this->_numero_de_colunas;
+    aux._numero_de_colunas = this->_numero_de_linhas;
     for(unsigned int i = 0; i < this->_numero_de_linhas; i++)
         for(unsigned int j = 0; j < this->_numero_de_colunas; j++)
             aux.M[i][j] = this->M[j][i];
-            
+
     return aux;
 }
 
@@ -195,7 +201,7 @@ const Matriz Matriz::operator~(const Matriz &a) const{
 }
 */
 
-const Matriz Matriz::operator*(const Matriz &a) const {
+Matriz Matriz::operator*(const Matriz &a) const {
     if(this->_numero_de_colunas != a._numero_de_linhas){
         cout << "Operacao invalida!";
         exit(-1);
@@ -203,7 +209,7 @@ const Matriz Matriz::operator*(const Matriz &a) const {
     else{
         Matriz m(*this);
         int Aux=0;
-    
+
         m._numero_de_linhas=this->_numero_de_linhas;
         m._numero_de_colunas=a._numero_de_colunas;
         for(unsigned int i=0; i<this->_numero_de_linhas; i++){
@@ -234,7 +240,7 @@ const Matriz Matriz::operator*(const Matriz &a) const {
             }
         }
     }
-    
+
     if (cont == (a._numero_de_linhas*a._numero_de_colunas))
         return 1;
     else
@@ -242,7 +248,7 @@ const Matriz Matriz::operator*(const Matriz &a) const {
 }
 */
 
-const int Matriz::operator==(const Matriz &a) const{
+int Matriz::operator==(const Matriz &a) const{
     unsigned int cont=0;
     if(this->_numero_de_linhas!=a._numero_de_linhas || this->_numero_de_colunas!=a._numero_de_colunas){
         cont = 0;
@@ -256,7 +262,7 @@ const int Matriz::operator==(const Matriz &a) const{
             }
         }
     }
-    
+
     if (cont == (a._numero_de_linhas*a._numero_de_colunas))
         return 1;
     else
@@ -267,6 +273,7 @@ const int Matriz::operator==(const Matriz &a) const{
     for(unsigned int i = 0; i < this->_numero_de_linhas; i++) {
         for(unsigned int j = 0; j < this->_numero_de_colunas; j++)
             cout << this->M[i][j] << "\t";
+
         cout << endl;
     }
 }
@@ -298,7 +305,8 @@ void Matriz::ModificaElementos1(){
 
 Matriz& Matriz::operator=( const Matriz &m ){
     for (unsigned int i = 0; i < m._numero_de_linhas; ++i)
-        memcpy( this->M[i], m.M[i], sizeof(int) * m._numero_de_colunas );
+        memcpy(this->M[i], m.M[i], sizeof(int) * m._numero_de_colunas);
+
     return *this;
 }
 
