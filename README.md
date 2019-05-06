@@ -4,8 +4,13 @@ Departamento de Engenharia Elétrica
 
 Programação Orientada à Objetos
 
-Professor Cristiano Leite de Castro 			                                              Turma:  TECAD
-Eduarda Fernanda Avila – 2017050665                                   Juliana Arruda Narcizo – 2016020851
+Professor Cristiano Leite de Castro 			                                             
+
+Turma:  TECAD
+
+Eduarda Fernanda Avila – 2017050665                                   
+
+Juliana Arruda Narcizo – 2016020851
 
 Trabalho Prático 1:
 
